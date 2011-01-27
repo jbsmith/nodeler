@@ -1,5 +1,12 @@
 #!/usr/bin/env node
 
+/*
+ * Copyright (c) 2011 jbsmith__aaat__mac.com
+ *
+ * Licensed under the terms of MIT License. For the full copyright and license
+ * information, please see the README file in the root folder.
+ */
+ 
 var dgram = require('dgram');
 var crypto = require('crypto');
 
