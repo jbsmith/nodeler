@@ -16,6 +16,18 @@ var notice = "Nodification";
 var title = (process.ARGV[3] || "Message from node.js");
 var description = (process.ARGV[4] || "Hello from your node.js application");
 
+var clear = function clear(){
+  var buffer = this;
+  var i = buffer.length;
+  while(i){
+  buffer.write('\u0000',i);
+    --i;
+  }
+  return buffer;
+};
+
+Buffer.prototype.clear = clear;
+
 var contentlens = new Buffer( '\u0000' + String.fromCharCode(notice.length) 
                             + '\u0000' + String.fromCharCode(title.length)
                             + '\u0000' + String.fromCharCode(description.length)
@@ -44,20 +56,8 @@ var registration_bufsize = (  4 + 1
                //+ 16  // for the MD5 checksum
                );
                
-var notification = new Buffer(notification_bufsize);
-var registration = new Buffer(registration_bufsize);
-
-var i=notification_bufsize
-   ,j=registration_bufsize;
-   
-while(i){
-  notification.write('\u0000',i);
-  --i;
-}
-while(j){
-  registration.write('\u0000',j);
-  --j;
-}
+var notification = new Buffer(notification_bufsize).clear();
+var registration = new Buffer(registration_bufsize).clear();
 
 var regraw = '\u0001\u0004\u0000' + String.fromCharCode(appname.length) + '\u0001\u0001' + prereg.toString('utf8');
 
