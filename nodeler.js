@@ -10,12 +10,9 @@
 var dgram = require('dgram');
 var crypto = require('crypto');
 
-var appname = "growlnotify";//"nodeler";
-var notice = "Command-Line Growl Notification";//"Nodification";
-/*
 var appname = "nodeler";
 var notice = "Nodification";
-*/
+
 var title = (process.ARGV[3] || "Message from node.js");
 var description = (process.ARGV[4] || "Hello from your node.js application");
 

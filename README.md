@@ -11,7 +11,7 @@ THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 ## Getting started
 
-  ./nodeler.js  127.0.0.1  HI  'Here is a new message'
+  ./nodeler.js  127.0.0.1  'Hello from node'  'Here is a new message using growl'
 
    in the code you'll find where these arguments are utilized via:
    process.ARGV[2]  etc.
