@@ -18,7 +18,7 @@ var sys = require('sys');
 var appname = "nodeler";
 var notices = ["Fail","Pass"];
 
-var destination = (process.ARGV[2] || "127.0.0.1");
+var destinations = (process.ARGV[2].split(",") || ["127.0.0.1"]);
 var title = (process.ARGV[3] || "Message from node.js");
 var description = (process.ARGV[4] || "Hello from your node.js application");
 var priority = (process.ARGV[5] < notices.length ? process.ARGV[5] : 0);
@@ -83,9 +83,13 @@ var notraw = '\u0001\u0005\u0001\u0011' + conlens.toString()+content.toString('u
 notification.write(notraw,0);
 
 var client = dgram.createSocket("udp4");
-client.send(registration, 0, registration.length, 9887, destination); // notify via growl
-client.send(notification, 0, notification.length, 9887, destination); // notify via growl
+
+for(var d in destinations){
+  client.send(registration, 0, registration.length, 9887, destinations[d]); // notify via growl
+  client.send(notification, 0, notification.length, 9887, destinations[d]); // notify via growl
+}
 client.close();
+
 // END Growltalk UDP packet preparation
 
 
@@ -120,20 +124,22 @@ var notify = function notify(socket){
   }
 };
 
-var socket_R = net.createConnection(9887, destination); // TCP
-socket_R.setEncoding('utf8');
-
-socket_R.on('connect',function(){
-  notify(socket_R);  
-});
-
-socket_R.on('data', function(chunk){
-  //sys.print(chunk);
-});
-
-socket_R.on('error', function(){
-  //sys.print(chunk);
-});
+for(var d in destinations){
+  var socket_R = net.createConnection(9887, destinations[d]); // TCP
+  socket_R.setEncoding('utf8');
+  
+  socket_R.on('connect',function(){
+    notify(socket_R);  
+  });
+  
+  socket_R.on('data', function(chunk){
+    //sys.print(chunk);
+  });
+  
+  socket_R.on('error', function(){
+    //sys.print(chunk);
+  });
+}
 
 // END SNP packet preparation
 

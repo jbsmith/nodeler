@@ -12,11 +12,23 @@ THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 ## Getting started
 
    SUPPORT FOR: Growl (OS X) and Snarl (Windows)
+        
+      first
+        
+        git clone https://github.com/jbsmith/nodeler.git
+        
+      then 
+        
+        from the base directory where package.json is found do:
+        
+        npm install
+      
+      try
 
-        ./nodeler.js  127.0.0.1  'Title' 'Message' 1 // Test passed
-        ./nodeler.js  127.0.0.1  'Title' 'Message' 0 // Test failed
-        ./nodeler.js  127.0.0.1  'Title' 'Message' // ordinary message
-        ./nodeler.js  127.0.0.1  'Title' 'Message' 1 true // register with Snarl client
+        nodeler  127.0.0.1  'Title' 'Message' 1 // Test passed
+        nodeler  127.0.0.1  'Title' 'Message' 0 // Test failed
+        nodeler  127.0.0.1  'Title' 'Message' // ordinary message
+        nodeler  127.0.0.1  'Title' 'Message' 1 true // register with Snarl client
   
    where x.x.x.x is the IP of the machine to receive the notification. 
       the first (optional) argument after that is the message Title.
