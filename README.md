@@ -11,19 +11,41 @@ THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 ## Getting started
 
-  ./nodeler.js  127.0.0.1  'Hello from node'  'Here is a new message using growl'
+   SUPPORT FOR: Growl (OS X) and Snarl (Windows)
+
+  ./nodeler.js  127.0.0.1  'Title' 'Message' 1 // Test passed
+  ./nodeler.js  127.0.0.1  'Title' 'Message' 0 // Test failed
+  ./nodeler.js  127.0.0.1  'Title' 'Message' // ordinary message
+  ./nodeler.js  127.0.0.1  'Title' 'Message' 1 true // register with Snarl client
+  
+   where x.x.x.x is the IP of the machine to receive the notification. 
+   the first (optional) argument after that is the message Title.
+   the second (optional) argument after that is the Notice itself.
+   third argument (optional) is the priority/passfail
+   fourth argument (optional) is the request to register with the Snarl client app.
 
    in the code you'll find where these arguments are utilized via:
    process.ARGV[2]  etc.
    
-   At the moment, the registration packet seems to be correct but will still not be permitted by growl. For now we just mimic the existing growlnotify command line app to ensure that we can at least transmit messages from remote.
+   At the moment, the registration packet works if growl is configured with no password to listen on the network port UDP 9887
    
-   With node, you could possibly setup a listener that would accept a list of IPs that could become receivers for the packets created in nodeler.
+   Snarl should listen on TCP 9887.
    
-   By default you can call nodeler.js as a command line application script, but there is no reason this code could not be turned into a module.
+   With node, you could possibly setup a listener that would accept a list of IPs that could become receivers for the packets created in nodeler. a simplistic pubsub.
    
-   The purpose of this code was to enable notifications to be sent from ANY machine (e.g. anything running node) without having to run growlnotify, which is only present on Mac OSX.
+   By default you can call nodeler.js as a command line application script.
+   There is no reason this code could not be turned into a module.
+   
+   The purpose of this code was to enable notifications to be sent from ANY machine (e.g. anything running node) without a dependency on growlnotify.
    
    Please post any desired features to the issues page.
+   
+##2011 01 29
+   ADDED support for SNP using the Snarl notification client.
+   Was looking for a way to notify OSX and Windows clients simultaneously.
+   Let Windows users run Snarl configured on:
+      Network->Receiving->Listen for incoming Growl or Snarl notifications? set to Yes.
+   OS X users ca run growl with network listening turned on and no password for registrations.
+      No registration password support working yet.
 
 
