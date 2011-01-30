@@ -13,10 +13,10 @@ THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
    SUPPORT FOR: Growl (OS X) and Snarl (Windows)
 
-  ./nodeler.js  127.0.0.1  'Title' 'Message' 1 // Test passed
-  ./nodeler.js  127.0.0.1  'Title' 'Message' 0 // Test failed
-  ./nodeler.js  127.0.0.1  'Title' 'Message' // ordinary message
-  ./nodeler.js  127.0.0.1  'Title' 'Message' 1 true // register with Snarl client
+  ./nodeler.js  127.0.0.1  'Title' 'Message' 1 // Test passed\n
+  ./nodeler.js  127.0.0.1  'Title' 'Message' 0 // Test failed\n
+  ./nodeler.js  127.0.0.1  'Title' 'Message' // ordinary message\n
+  ./nodeler.js  127.0.0.1  'Title' 'Message' 1 true // register with Snarl client\n
   
    where x.x.x.x is the IP of the machine to receive the notification. 
    the first (optional) argument after that is the message Title.
