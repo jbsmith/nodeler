@@ -19,10 +19,10 @@ THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         ./nodeler.js  127.0.0.1  'Title' 'Message' 1 true // register with Snarl client
   
    where x.x.x.x is the IP of the machine to receive the notification. 
-   the first (optional) argument after that is the message Title.
-   the second (optional) argument after that is the Notice itself.
-   third argument (optional) is the priority/passfail
-   fourth argument (optional) is the request to register with the Snarl client app.
+      the first (optional) argument after that is the message Title.
+      the second (optional) argument after that is the Notice itself.
+      third argument (optional) is the priority/passfail
+      fourth argument (optional) is the request to register with the Snarl client app.
 
    in the code you'll find where these arguments are utilized via:
    process.ARGV[2]  etc.
