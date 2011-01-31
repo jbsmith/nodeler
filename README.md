@@ -19,8 +19,8 @@ THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			
       or: 
 	
-	      git clone https://github.com/jbsmith/nodeler.git
-        cd nodeler
+				git clone https://github.com/jbsmith/nodeler.git
+				cd nodeler
 				npm install
       
 			try
