@@ -13,17 +13,17 @@ THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
    SUPPORT FOR: Growl (OS X) and Snarl (Windows)
         
-      first
-        
-        git clone https://github.com/jbsmith/nodeler.git
-        
-      then 
-        
-        from the base directory where package.json is found do:
-        
-        npm install nodeler
+      start with either:
+			
+  			npm install nodeler
+			
+      or: 
+	
+	      git clone https://github.com/jbsmith/nodeler.git
+        cd nodeler
+				npm install
       
-      try
+			try
 
         nodeler  127.0.0.1  'Title' 'Message' 1 // Test passed
         nodeler  127.0.0.1  'Title' 'Message' 0 // Test failed
