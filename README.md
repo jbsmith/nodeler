@@ -21,7 +21,7 @@ THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         
         from the base directory where package.json is found do:
         
-        npm install
+        npm install nodeler
       
       try
 
