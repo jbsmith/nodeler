@@ -1,6 +1,6 @@
 { "name": "nodeler",
   "version": "0.2.0",
-  "description": "lightweight growl/snarl notification",
+  "description": "lightweight growl / snarl notification",
   "author": "JB Smith <jbsmith__AAAAt__mac.com>",
   "bin": { 
     "nodeler": "./bin/nodeler"
